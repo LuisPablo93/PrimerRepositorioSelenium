@@ -1,5 +1,7 @@
 package com.google;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -24,7 +26,10 @@ public class FirstTest {
 
 		driver.get("https://www.google.com/");
 		driver.manage().window().maximize();
-
+		
+		// implicit wait
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)	;	
+		
 		Assert.assertEquals(driver.getTitle(), "Google");
 
 	}
